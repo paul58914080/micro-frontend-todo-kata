@@ -30,7 +30,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              },
+              "dist/elements/create-todo.js",
+              "dist/elements/view-todo.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -136,7 +142,7 @@
       "prefix": "create",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/create-todo",
             "index": "projects/create-todo/src/index.html",
@@ -151,7 +157,13 @@
             "styles": [
               "projects/create-todo/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "projects/create-todo/build/extra-webpack.config.js",
+              "mergeStrategies": {
+                "externals": "replace"
+              }
+            }
           },
           "configurations": {
             "production": {
@@ -257,7 +269,7 @@
       "prefix": "view",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/view-todo",
             "index": "projects/view-todo/src/index.html",
@@ -272,7 +284,13 @@
             "styles": [
               "projects/view-todo/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "projects/view-todo/build/extra-webpack.config.js",
+              "mergeStrategies": {
+                "externals": "replace"
+              }
+            }
           },
           "configurations": {
             "production": {
