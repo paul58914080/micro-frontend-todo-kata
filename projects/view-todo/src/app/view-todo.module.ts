@@ -11,6 +11,9 @@ import {BrowserModule} from '@angular/platform-browser';
     BrowserModule
   ],
   entryComponents: [ViewTodoComponent],
+  exports: [
+    ViewTodoComponent
+  ],
   bootstrap: [ViewTodoComponent]
 })
 export class ViewTodoModule {
