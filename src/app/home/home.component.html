@@ -1,7 +1,13 @@
 <div class='container-fluid'>
-  <create-todo></create-todo>
-  <view-todo></view-todo>
+  <div *ngIf="!loadElements">
+    <h3>Angular components</h3>
+    <create-todo></create-todo>
+    <view-todo></view-todo>
+  </div>
   <!-- As elements -->
-  <create-todo-element></create-todo-element>
-  <view-todo-element></view-todo-element>
+  <div *ngIf="loadElements">
+    <h3>Web components</h3>
+    <create-todo-element></create-todo-element>
+    <view-todo-element></view-todo-element>
+  </div>
 </div>
